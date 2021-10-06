@@ -1,14 +1,15 @@
 package com.project.gameregistration;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,23 +46,27 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setIcon(R.drawable.warning)
-                        .setTitle("Daftarkan")
-                        .setMessage("Apakah anda sudah yakin dengan data anda ?")
-                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                finish();
-                            }
-                        }).setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Daftarkan");
+                builder.setMessage("Apakah anda sudah yakin dengan data anda ?");
+
+                builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
+                        Toast.makeText(getApplicationContext(), "Data anda berhasil terdaftarkan !", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+                builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
-
     }
 }
