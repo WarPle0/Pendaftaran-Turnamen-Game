@@ -7,6 +7,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtRating;
     private String nilaiRating;
     private Button btnDaftar;
+//    private RadioGroup radioGroup;
+//    private RadioButton mlbb, lolwr, ff, pubgm, codm, valo;
+//    private String rButtonGames = "";
+//    private CheckBox cb1, cb2, cb3, cb4, cb5, cb6;
+//    private String pilihanCheckBox = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +41,36 @@ public class MainActivity extends AppCompatActivity {
         seekBar = findViewById(R.id.seekbar);
         txtRating = findViewById(R.id.rating);
         btnDaftar = findViewById(R.id.daftar);
+//        radioGroup = findViewById(R.id.rgturnamen);
+//        mlbb = findViewById(R.id.mlbb);
+//        lolwr = findViewById(R.id.lolwr);
+//        ff = findViewById(R.id.freefire);
+//        pubgm = findViewById(R.id.pubgm);
+//        codm = findViewById(R.id.codm);
+//        valo = findViewById(R.id.valo);
+//        cb1 = findViewById(R.id.instagram);
+//        cb2 = findViewById(R.id.discord);
+//        cb3 = findViewById(R.id.twitch);
+//        cb4 = findViewById(R.id.youtube);
+//        cb5 = findViewById(R.id.nimotv);
+//        cb6 = findViewById(R.id.lainnya);
+
+//        if (mlbb.isChecked()) {
+//            rButtonGames += "Mobile Legends";
+//        } if (lolwr.isChecked()) {
+//            rButtonGames += "League of Legends";
+//        } if (ff.isChecked()) {
+//            rButtonGames += "Free Fire";
+//        } if (pubgm.isChecked()) {
+//            rButtonGames += "PlayerUnknown's BattleGround Mobile";
+//        } if (codm.isChecked()) {
+//            rButtonGames += "Call of Duty Mobile";
+//        } if (valo.isChecked()) {
+//            rButtonGames += "Valorant";
+//        }
+
+//        if (cb1.isChecked())
+//            pilihanCheckBox += "\n" + cb1.getText().toString();
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -64,6 +102,8 @@ public class MainActivity extends AppCompatActivity {
                         "Nickname : \n" + txtNickname.getText() + "\n\n" +
                         "Email : \n" + txtEmail.getText() + "\n\n" +
                         "Domisili : \n" + txtDomisili.getText() + "\n\n" +
+//                        "Turnamen Game yang diikuti : \n" + radioGroup.getCheckedRadioButtonId() + "\n\n" +
+//                        "Sumber info : \n" + pilihanCheckBox + "\n\n" +
                         "Rating : \n" + nilaiRating + ""
                 );
 
