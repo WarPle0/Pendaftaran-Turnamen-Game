@@ -167,7 +167,7 @@
                 android:layout_below="@+id/isi_domisili"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="monospace"
-                android:labelFor="@+id/grup_turnamen"
+                android:labelFor="@+id/isi_turnamen"
                 android:text="Tournament :"
                 android:textColor="@color/black"
                 android:textSize="25sp"
@@ -178,6 +178,56 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lbl_turnamen"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="@color/light_blue"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <!--            Label Sumber-->
+            <TextView
+                android:id="@+id/lbl_sumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/isi_turnamen"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="monospace"
+                android:labelFor="@+id/isi_sumber"
+                android:text="Sumber :"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/isi_sumber"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_sumber"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="15dp"
+                android:backgroundTint="@color/light_blue"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <!--            Label Rating-->
+            <TextView
+                android:id="@+id/lbl_rating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/isi_sumber"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="monospace"
+                android:labelFor="@+id/isi_rating"
+                android:text="Rating :"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/isi_rating"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lbl_rating"
                 android:layout_marginLeft="20dp"
                 android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/light_blue"
