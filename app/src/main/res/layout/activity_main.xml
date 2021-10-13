@@ -9,7 +9,7 @@
     android:backgroundTintMode="src_atop"
     tools:context=".MainActivity">
 
-<!--    Banner atau Header-->
+    <!--    Banner atau Header-->
     <LinearLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
@@ -19,14 +19,14 @@
         android:background="@drawable/banner_corner"
         app:layout_constraintTop_toTopOf="parent">
 
-<!--        EVOS image setting-->
+        <!--        EVOS image setting-->
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:padding="5sp"
             android:src="@drawable/evos" />
 
-<!--        Header teks-->
+        <!--        Header teks-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-<!--    Scroll vertikal-->
+    <!--    Scroll vertikal-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -48,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/banner">
 
-<!--        Pengaturan Background Form Input-->
+        <!--        Pengaturan Background Form Input-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/main_content_corners">
 
-<!--            Label input nama-->
+            <!--            Label input nama-->
             <TextView
                 android:id="@+id/lbl_namalengkap"
                 android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-<!--            Inputan nama lengkap-->
+            <!--            Inputan nama lengkap-->
             <EditText
                 android:id="@+id/input_namalengkap"
                 android:layout_width="350dp"
@@ -80,7 +80,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-<!--            Label nickname-->
+            <!--            Label nickname-->
             <TextView
                 android:id="@+id/lbl_nickname"
                 android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-<!--            Inputan nickname-->
+            <!--            Inputan nickname-->
             <EditText
                 android:id="@+id/input_nickname"
                 android:layout_width="350dp"
@@ -105,7 +105,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-<!--            Label email-->
+            <!--            Label email-->
             <TextView
                 android:id="@+id/lbl_email"
                 android:layout_width="match_parent"
@@ -119,7 +119,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-<!--            Inputan email-->
+            <!--            Inputan email-->
             <EditText
                 android:id="@+id/input_email"
                 android:layout_width="350dp"
@@ -130,7 +130,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-<!--            Label domisili-->
+            <!--            Label domisili-->
             <TextView
                 android:id="@+id/lbl_domisili"
                 android:layout_width="match_parent"
@@ -144,7 +144,7 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-<!--            Inputan domisili-->
+            <!--            Inputan domisili-->
             <EditText
                 android:id="@+id/input_domisili"
                 android:layout_width="350dp"
@@ -155,7 +155,7 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-<!--            Label turnamen-->
+            <!--            Label turnamen-->
             <TextView
                 android:id="@+id/lbl_turnamen"
                 android:layout_width="match_parent"
@@ -169,14 +169,14 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-<!--            Scroll layar Horizontal-->
+            <!--            Scroll layar Horizontal-->
             <HorizontalScrollView
                 android:id="@+id/horizontal_scroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lbl_turnamen">
 
-<!--                Grid game-->
+                <!--                Grid game-->
                 <GridLayout
                     android:id="@+id/grup_turnamen"
                     android:layout_width="match_parent"
@@ -185,14 +185,14 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp">
 
-<!--                    Grup untuk radio button agar bisa dipilih cuman salah satu-->
+                    <!--                    Grup untuk radio button agar bisa dipilih cuman salah satu-->
                     <RadioGroup
                         android:id="@+id/rgturnamen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-<!--                        Radio button mlbb-->
+                        <!--                        Radio button mlbb-->
                         <RadioButton
                             android:id="@+id/mlbb"
                             android:layout_width="30dp"
@@ -200,13 +200,13 @@
                             android:layout_centerHorizontal="true"
                             android:layout_margin="5dp" />
 
-<!--                        Icon mlbb-->
+                        <!--                        Icon mlbb-->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/mlbb" />
 
-<!--                        Radio button lolwr-->
+                        <!--                        Radio button lolwr-->
                         <RadioButton
                             android:id="@+id/lolwr"
                             android:layout_width="30dp"
@@ -214,14 +214,14 @@
                             android:layout_centerHorizontal="true"
                             android:layout_margin="5dp" />
 
-<!--                        Icon lolwr-->
+                        <!--                        Icon lolwr-->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:background="@color/black"
                             android:src="@drawable/lolwr" />
 
-<!--                        Radio button ff-->
+                        <!--                        Radio button ff-->
                         <RadioButton
                             android:id="@+id/freefire"
                             android:layout_width="30dp"
@@ -229,13 +229,13 @@
                             android:layout_centerHorizontal="true"
                             android:layout_margin="5dp" />
 
-<!--                        Icon ff-->
+                        <!--                        Icon ff-->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/freefire" />
 
-<!--                        Radio button pubgm-->
+                        <!--                        Radio button pubgm-->
                         <RadioButton
                             android:id="@+id/pubgm"
                             android:layout_width="30dp"
@@ -243,13 +243,13 @@
                             android:layout_centerHorizontal="true"
                             android:layout_margin="5dp" />
 
-<!--                        Icon pubgm-->
+                        <!--                        Icon pubgm-->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/pubgm" />
 
-<!--                        Radio button codm-->
+                        <!--                        Radio button codm-->
                         <RadioButton
                             android:id="@+id/codm"
                             android:layout_width="30dp"
@@ -257,13 +257,13 @@
                             android:layout_centerHorizontal="true"
                             android:layout_margin="5dp" />
 
-<!--                        Icon codm-->
+                        <!--                        Icon codm-->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
                             android:src="@drawable/codm" />
 
-<!--                        Radio button valo-->
+                        <!--                        Radio button valo-->
                         <RadioButton
                             android:id="@+id/valo"
                             android:layout_width="30dp"
@@ -271,7 +271,7 @@
                             android:layout_centerHorizontal="true"
                             android:layout_margin="5dp" />
 
-<!--                        Icon valorant-->
+                        <!--                        Icon valorant-->
                         <ImageView
                             android:layout_width="80dp"
                             android:layout_height="80dp"
@@ -282,7 +282,7 @@
 
             </HorizontalScrollView>
 
-<!--            Grup layout sumber turnamen-->
+            <!--            Grup layout sumber turnamen-->
             <RelativeLayout
                 android:id="@+id/checkbox_sosmed"
                 android:layout_width="fill_parent"
@@ -291,7 +291,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="20dp">
 
-<!--                Label sumber-->
+                <!--                Label sumber-->
                 <TextView
                     android:id="@+id/lbl_cbx"
                     android:layout_width="wrap_content"
@@ -302,7 +302,7 @@
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
-<!--                Sumber instagram-->
+                <!--                Sumber instagram-->
                 <CheckBox
                     android:id="@+id/instagram"
                     android:layout_width="wrap_content"
@@ -315,7 +315,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-<!--                Sumber discord-->
+                <!--                Sumber discord-->
                 <CheckBox
                     android:id="@+id/discord"
                     android:layout_width="wrap_content"
@@ -328,7 +328,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-<!--                Sumber Youtube-->
+                <!--                Sumber Youtube-->
                 <CheckBox
                     android:id="@+id/twitch"
                     android:layout_width="wrap_content"
@@ -341,7 +341,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-<!--                Sumber youtube-->
+                <!--                Sumber youtube-->
                 <CheckBox
                     android:id="@+id/youtube"
                     android:layout_width="wrap_content"
@@ -354,7 +354,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-<!--                Sumber nimotv-->
+                <!--                Sumber nimotv-->
                 <CheckBox
                     android:id="@+id/nimotv"
                     android:layout_width="wrap_content"
@@ -367,7 +367,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-<!--                Sumber lainnya-->
+                <!--                Sumber lainnya-->
                 <CheckBox
                     android:id="@+id/lainnya"
                     android:layout_width="wrap_content"
@@ -382,7 +382,7 @@
 
             </RelativeLayout>
 
-<!--            Grup layout seekbar-->
+            <!--            Grup layout seekbar-->
             <RelativeLayout
                 android:id="@+id/grp_seekbar"
                 android:layout_width="match_parent"
@@ -391,7 +391,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="25dp">
 
-<!--                Label rating-->
+                <!--                Label rating-->
                 <TextView
                     android:id="@+id/rating"
                     android:layout_width="match_parent"
@@ -403,7 +403,7 @@
                     android:textSize="25sp"
                     android:textStyle="bold" />
 
-<!--                Seekbar rating-->
+                <!--                Seekbar rating-->
                 <SeekBar
                     android:id="@+id/seekbar"
                     android:layout_width="match_parent"
@@ -417,7 +417,7 @@
                     android:scaleY="2" />
             </RelativeLayout>
 
-<!--            Button submit-->
+            <!--            Button submit-->
             <Button
                 android:id="@+id/daftar"
                 android:layout_width="wrap_content"
