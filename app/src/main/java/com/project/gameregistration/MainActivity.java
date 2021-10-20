@@ -16,61 +16,73 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView txtNamaLengkap; //atribut namalengkap
-    private TextView txtNickname; //atribut nickname
-    private TextView txtEmail; //atribut email
-    private TextView txtDomisili; //atribut domisili
-    private RadioGroup rgTurnamen; //atribut Radio Grup Turnamen
-    private RadioButton rbMlbb; //atribut MLBB
-    private RadioButton rbLolwr; //atribut LOL WR
-    private RadioButton rbFf; //atribut FF
-    private RadioButton rbPubgm; //atribut PUBGM
-    private RadioButton rbCodm; //atribut CODM
-    private RadioButton rbValorant; //atribut Valorant
-    private String turnamen; //atribut turnamen
-    private CheckBox cbInstagram; //atribut Instagram
-    private CheckBox cbDiscord; //atribut Discord
-    private CheckBox cbTwitch; //atribut Twitch
-    private CheckBox cbYoutube; //atribut Youtube
-    private CheckBox cbNimoTV; //atribut NimoTV
-    private CheckBox cbLainnya; //atribut Lainnya
-    private String sumber; //atribut sumber
-    private SeekBar seekBar; //atribut seekbar
-    private TextView txtRating; //atribut text rating
-    private String nilaiRating; //atribut nilai rating
-    private Button btnDaftar; //atribut button
+    // Pendeklarasian Variabel
+    private TextView txtNamaLengkap;
+    private String namaLengkap;
+    private TextView txtNickname;
+    private String nickname;
+    private TextView txtEmail;
+    private String email;
+    private TextView txtDomisili;
+    private String domisili;
+    private RadioGroup rgTurnamen;
+    private RadioButton rbMlbb;
+    private RadioButton rbLolwr;
+    private RadioButton rbFf;
+    private RadioButton rbPubgm;
+    private RadioButton rbCodm;
+    private RadioButton rbValorant;
+    private String turnamen;
+    private CheckBox cbInstagram;
+    private CheckBox cbDiscord;
+    private CheckBox cbTwitch;
+    private CheckBox cbYoutube;
+    private CheckBox cbNimoTV;
+    private CheckBox cbLainnya;
+    private String sumber;
+    private SeekBar seekBar;
+    private TextView txtRating;
+    private String nilaiRating;
+    private Button btnDaftar;
+
+    private DatabaseHelper db;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        txtNamaLengkap = findViewById(R.id.input_namalengkap); //inisialisasi nama lengkap
-        txtNickname = findViewById(R.id.input_nickname); //inisialisasi nickname
-        txtEmail = findViewById(R.id.input_email); //inisialisasi email
-        txtDomisili = findViewById(R.id.input_domisili); //inisialisasi domisili
-        rgTurnamen = findViewById(R.id.rgturnamen); //inisialisasi Radio Group Turnamen
-        rbMlbb = findViewById(R.id.mlbb); //inisialisasi Radio Button MLBB
-        rbLolwr = findViewById(R.id.lolwr); //inisialisasi Radio Button LOL WR
-        rbFf = findViewById(R.id.freefire); //inisialisasi Radio Button FF
-        rbPubgm = findViewById(R.id.pubgm); //inisialisasi Radio Button PUBGM
-        rbCodm = findViewById(R.id.codm); //inisialisasi Radio Button CODM
-        rbValorant = findViewById(R.id.valo); //inisialisasi Radio Button Valorant
-        cbInstagram = findViewById(R.id.instagram); //inisialisasi Checkbox Instagram
-        cbDiscord = findViewById(R.id.discord); //inisialisasi Checkbox Discord
-        cbTwitch = findViewById(R.id.twitch); //inisialisasi Checkbox Twitch
-        cbYoutube = findViewById(R.id.youtube); //inisialisasi Checkbox Youtube
-        cbNimoTV = findViewById(R.id.nimotv); //inisialisasi Checkbox NimoTV
-        cbLainnya = findViewById(R.id.lainnya); //inisialisasi Checkbox Lainnya
-        seekBar = findViewById(R.id.seekbar); //inisialisasi seekbar
-        txtRating = findViewById(R.id.rating); //inisialisasi rating
-        btnDaftar = findViewById(R.id.daftar); //inisialisasi button daftar/submit
+        // Inisialisasi Variabel
+        txtNamaLengkap = findViewById(R.id.input_namalengkap);
+        txtNickname = findViewById(R.id.input_nickname);
+        txtEmail = findViewById(R.id.input_email);
+        txtDomisili = findViewById(R.id.input_domisili);
+        rgTurnamen = findViewById(R.id.rgturnamen);
+        rbMlbb = findViewById(R.id.mlbb);
+        rbLolwr = findViewById(R.id.lolwr);
+        rbFf = findViewById(R.id.freefire);
+        rbPubgm = findViewById(R.id.pubgm);
+        rbCodm = findViewById(R.id.codm);
+        rbValorant = findViewById(R.id.valo);
+        cbInstagram = findViewById(R.id.instagram);
+        cbDiscord = findViewById(R.id.discord);
+        cbTwitch = findViewById(R.id.twitch);
+        cbYoutube = findViewById(R.id.youtube);
+        cbNimoTV = findViewById(R.id.nimotv);
+        cbLainnya = findViewById(R.id.lainnya);
+        seekBar = findViewById(R.id.seekbar);
+        txtRating = findViewById(R.id.rating);
+        btnDaftar = findViewById(R.id.daftar);
 
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() { //method listener untuk seekbar
+        db = new DatabaseHelper(this);
+
+        // Fungsi seekbar untuk mengambil datanya
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                nilaiRating = String.valueOf(i); //inisialisasi value/nilai rating
-                txtRating.setText("Beri nilai tim kami : " + nilaiRating); //method set dan get
+                nilaiRating = String.valueOf(i);
+                txtRating.setText("Beri nilai tim kami : " + nilaiRating);
             }
 
             @Override
@@ -84,9 +96,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnDaftar.setOnClickListener(new View.OnClickListener() { //method button
+        // Fungsi button saat di klik
+        btnDaftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                namaLengkap = txtNamaLengkap.getText().toString();
+                nickname = txtNickname.getText().toString();
+                email = txtEmail.getText().toString();
+                domisili = txtDomisili.getText().toString();
+
                 // Mengisi nilai dari hasil return sebuah method
                 turnamen = getTurnamenSelected();
                 sumber = getSumberSelected();
@@ -99,10 +117,10 @@ public class MainActivity extends AppCompatActivity {
                 // Mengeset Message
                 builder.setMessage(
                         "Apakah anda sudah yakin dengan data anda ?\n\n" +
-                        "Nama Lengkap : \n" + txtNamaLengkap.getText().toString() + "\n\n" +
-                        "Nickname : \n" + txtNickname.getText().toString() + "\n\n" +
-                        "Email : \n" + txtEmail.getText().toString() + "\n\n" +
-                        "Domisili : \n" + txtDomisili.getText().toString() + "\n\n" +
+                        "Nama Lengkap : \n" + namaLengkap + "\n\n" +
+                        "Nickname : \n" + nickname + "\n\n" +
+                        "Email : \n" + email + "\n\n" +
+                        "Domisili : \n" + domisili + "\n\n" +
                         "Turnament : \n" + turnamen + "\n\n" +
                         "Sumber : \n" + sumber + "\n\n" +
                         "Rating : \n" + nilaiRating + ""
@@ -118,21 +136,21 @@ public class MainActivity extends AppCompatActivity {
                         // Inisialisasi Intent untuk berpindah activity
                         Intent layout2 = new Intent(MainActivity.this, MainActivity2.class);
 
-                        // Mengeset data yang akan dikirim ke layout tujuan pada Intent
-                        // Memakai putExtra
-                        layout2.putExtra("namaLengkap", txtNamaLengkap.getText().toString());
-                        layout2.putExtra("nickname", txtNickname.getText().toString());
-                        layout2.putExtra("email", txtEmail.getText().toString());
-                        layout2.putExtra("domisili", txtDomisili.getText().toString());
-                        layout2.putExtra("turnament", turnamen);
-                        layout2.putExtra("sumber", sumber);
-                        layout2.putExtra("rating", nilaiRating);
+                        // Membuat user dan memasukannya pada database SQLite
+                        user = new User();
+                        user.setNamaLengkap(namaLengkap);
+                        user.setNickname(nickname);
+                        user.setEmail(email);
+                        user.setDomisili(domisili);
+                        user.setTurnament(turnamen);
+                        user.setSumber(sumber);
+                        user.setRating(nilaiRating);
+
+                        // Memanggil/memakai fungsi insert untuk memasukkan data
+                        db.insert(user);
 
                         // Memulai Activity tujuan
                         startActivity(layout2);
-
-                        // Mengakhiri Activity ini
-                        finish();
                     }
                 });
 
@@ -144,8 +162,9 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-                AlertDialog alertDialog = builder.create(); //method get alert dan create alert
-                alertDialog.show(); //to show alert
+                // Memunculkan alert
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
     }
