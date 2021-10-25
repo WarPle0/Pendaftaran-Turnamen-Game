@@ -25,6 +25,7 @@
             android:src="@drawable/evos" />
 
         <TextView
+            android:id="@+id/cobaid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -389,11 +390,12 @@
                 android:layout_margin="15dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/rounded_button"
-                android:text="Daftar"
+                android:text="UPDATE"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:theme="@style/btn_blue" />
 
         </RelativeLayout>
 

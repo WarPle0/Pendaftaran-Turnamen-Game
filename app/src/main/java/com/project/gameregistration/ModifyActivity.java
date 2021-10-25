@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -38,7 +39,7 @@ public class ModifyActivity extends AppCompatActivity {
     private CheckBox cbLainnya;
     private SeekBar seekBar;
     private TextView txtRating;
-    private String id;
+    private int id;
     private String namaLengkap;
     private String nickname;
     private String email;
@@ -80,7 +81,7 @@ public class ModifyActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         Intent intent = getIntent();
-        id = intent.getExtras().getString("id");
+        id = intent.getExtras().getInt("id");
         namaLengkap = intent.getExtras().getString("namaLengkap");
         nickname = intent.getExtras().getString("nickname");
         email = intent.getExtras().getString("email");
@@ -151,7 +152,7 @@ public class ModifyActivity extends AppCompatActivity {
                         layoutMenu.putExtra("status", "edit");
 
                         user = new User();
-                        user.setId(Integer.parseInt(id));
+                        user.setId(id);
                         user.setNamaLengkap(namaLengkap);
                         user.setNickname(nickname);
                         user.setEmail(email);

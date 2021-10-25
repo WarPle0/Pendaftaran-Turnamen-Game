@@ -431,7 +431,8 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:theme="@style/btn_blue" />
 
         </RelativeLayout>
 
