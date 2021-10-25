@@ -125,6 +125,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return users;
     }
 
+    // Fungsi untuk mengupdate data di database
     public void update(User user) {
         SQLiteDatabase db = getReadableDatabase();
         ContentValues values = new ContentValues();
@@ -137,13 +138,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_SUMBER, user.getSumber());
         values.put(KEY_RATING, user.getRating());
 
+        // Karena ini fungsi update maka membutuhkan whereClause
+        // Yaitu data mana yang mau diedit, biasanya mengambil id nya
+        // Karena id biasanya valuenya primary atau tiap data pasti memiliki id yang beda
         String whereClause = KEY_ID + " = '" + user.getId() + "'";
 
         db.update(TABLE_NAME, values, whereClause, null);
     }
 
+    // Fungsi untuk menghapus data di database
     public void delete(int id) {
         SQLiteDatabase db = getWritableDatabase();
+
+        // Seperti fungsi edit fungsi delete pun membutuhkan whereClause
+        // Data dengan id mana yang mau di hapus
         String whereClause = KEY_ID + " = '" + id + "'";
 
         db.delete(TABLE_NAME, whereClause, null);

@@ -80,6 +80,8 @@ public class ModifyActivity extends AppCompatActivity {
 
         db = new DatabaseHelper(this);
 
+        // Mengambil data dari Intent putExtra
+        // Yang dikirim activity sebelumnya
         Intent intent = getIntent();
         id = intent.getExtras().getInt("id");
         namaLengkap = intent.getExtras().getString("namaLengkap");
@@ -90,6 +92,7 @@ public class ModifyActivity extends AppCompatActivity {
         sumber = intent.getExtras().getString("sumber");
         rating = intent.getExtras().getString("rating");
 
+        // Lalu di set di formnya
         edtNamaLengkap.setText(namaLengkap);
         edtNickname.setText(nickname);
         edtEmail.setText(email);
@@ -97,7 +100,6 @@ public class ModifyActivity extends AppCompatActivity {
         txtRating.setText("Beri nilai tim kami : " + rating);
         setTurnamentSelected();
         setSumberSelected();
-
         seekBar.setProgress(Integer.parseInt(rating));
 
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -146,8 +148,6 @@ public class ModifyActivity extends AppCompatActivity {
                 builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(getApplicationContext(), "Data anda berhasil terdaftarkan !", Toast.LENGTH_SHORT).show();
-
                         Intent layoutMenu = new Intent(ModifyActivity.this, MainActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         layoutMenu.putExtra("status", "edit");
 
@@ -161,6 +161,7 @@ public class ModifyActivity extends AppCompatActivity {
                         user.setSumber(sumber);
                         user.setRating(rating);
 
+                        // Memanggil fungsi update database
                         db.update(user);
 
                         startActivity(layoutMenu);
@@ -181,7 +182,10 @@ public class ModifyActivity extends AppCompatActivity {
         });
     }
 
+    // Untuk meng set data combo box sesuai dengan data dari putExtra atau database
     private void setSumberSelected() {
+        // Apabila variabel sumber ada kata tertentu didalamnya
+        // Maka cb tertentu akan ter checked
         if (sumber.contains("Instagram")) {
             cbInstagram.setChecked(true);
         }
@@ -227,6 +231,7 @@ public class ModifyActivity extends AppCompatActivity {
         return sumber;
     }
 
+    // Meng set radio button yang pilih sesuai dengan data dari putExtra atau database
     private void setTurnamentSelected() {
         if (turnament.equals("Mobile Legend Bang Bang")) {
             rbMlbb.setChecked(true);

@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+// Ini merupakan class pengaturan untuk recycler viewnya
+// Terutama Adapter nya
 public class RecyclerviewAdapter extends RecyclerView.Adapter<UserViewHolder> {
     List<User> userList;
 
@@ -16,6 +18,8 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<UserViewHolder> {
         this.userList = userList;
     }
 
+    // Meng set view holder nya
+    // Atau bisa dibilang tampilan row atau baris nya
     @NonNull
     @Override
     public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,6 +30,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<UserViewHolder> {
         return userViewHolder;
     }
 
+    // Mengset isi tiap baris datanya
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         holder.txtNamaLengkap.setText(userList.get(position).getNamaLengkap());
@@ -33,6 +38,7 @@ public class RecyclerviewAdapter extends RecyclerView.Adapter<UserViewHolder> {
         holder.txtTurnament.setText(userList.get(position).getTurnament());
     }
 
+    // Ini untuk menghitung jumlah datanya
     @Override
     public int getItemCount() {
         return userList.size();

@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+// Berisi pengaturan untuk View Holdernya
+// Atau tampilan tiap baris dari recycler view
 public class UserViewHolder extends RecyclerView.ViewHolder {
     TextView txtNickname;
     TextView txtNamaLengkap;
@@ -47,6 +49,8 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
+    // Apabila salah satu listUser nya di klik fungsi ini akan dipanggil
+    // Untuk memunculkan alert pilihan
     private void alertAction(Context context, int position) {
         String[] option = {"Detail", "Edit", "Delete"};
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

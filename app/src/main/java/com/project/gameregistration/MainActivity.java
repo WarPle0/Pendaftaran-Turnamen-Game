@@ -38,8 +38,15 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
+        // Memanggil fungsi untuk set Recycler View nya
+        // Fungsi ini dibuat di Class ini ( Ada dibawah fungsi onCreate ini )
         setupRecyclerView();
 
+        // Dengan try catch apabila ada kodingan yang error maka program akan tetap dijalankan
+        // Disini menjalan kode yang dimana mengecek nilai intent
+        // Karena Activity ini akan dibuka pertama kali maka kodingan ini bisa error dan program berhenti
+        // Karena tidak ada extra apapun dari intent
+        // Maka program didalam catch akan dijalankan
         try {
             Intent intent = getIntent();
             String status = intent.getExtras().getString("status");
@@ -57,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        // fab ini adalah tombol + di kanan bawah
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,15 +75,24 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Fungsi yang didalamnya terdapat program untuk meng setup Recycler View
+    // Fungsi ini dipakai di class lain
+    // Saat ini digunakan untuk me refresh data recycler view saat menghapus data
     static void setupRecyclerView(Context context, List<User> userList, RecyclerView recyclerView) {
         DatabaseHelper db = new DatabaseHelper(context);
         userList = db.selectUserData();
 
+        // Meng set adapter Recycler View nya
         RecyclerviewAdapter adapter = new RecyclerviewAdapter(userList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
 
+    // Fungsi ini sama namanya dengan yang sebelumnya
+    // Begitupun fungsinya, tapi memiliki parameter dan aksesibilitas yang berbeda
+    // Dalam OOP (Object Oriented Programming) 2 fungsi yang memiliki nama sama
+    // Biasanya disebut Overloading
+    // Fungsi yang ini dipakai untuk di class ini
     private void setupRecyclerView() {
         DatabaseHelper db = new DatabaseHelper(this);
         userList = db.selectUserData();
@@ -83,5 +100,29 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RecyclerviewAdapter(userList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Toast.makeText(this, "Selamat datang ^_^", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, "Halo ^_^", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this, "Jangan lupa kembali lagi ^_^", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Toast.makeText(this, "Sampai berjumpa lagi nanti ^_^", Toast.LENGTH_LONG).show();
     }
 }
