@@ -7,9 +7,8 @@
     android:background="@drawable/background"
     android:backgroundTint="@color/black_transparant"
     android:backgroundTintMode="src_atop"
-    tools:context=".MainActivity2">
+    tools:context=".ViewActivity">
 
-    <!--    Banner atau Header-->
     <LinearLayout
         android:id="@+id/banner"
         android:layout_width="match_parent"
@@ -19,14 +18,12 @@
         android:background="@drawable/banner_corner"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!--        EVOS image setting-->
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:padding="5sp"
             android:src="@drawable/evos" />
 
-        <!--        Header teks-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +36,6 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!--    Scroll vertikal-->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -48,7 +44,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/banner">
 
-        <!--        Pengaturan Background Form Input-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -56,7 +51,6 @@
             android:layout_marginRight="25dp"
             android:background="@drawable/main_content_corners">
 
-            <!--            Label input nama-->
             <TextView
                 android:id="@+id/lbl_namalengkap"
                 android:layout_width="match_parent"
@@ -69,7 +63,6 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <!--            Isi nama lengkap-->
             <TextView
                 android:id="@+id/isi_namalengkap"
                 android:layout_width="350dp"
@@ -81,7 +74,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <!--            Label nickname-->
             <TextView
                 android:id="@+id/lbl_nickname"
                 android:layout_width="match_parent"
@@ -95,7 +87,6 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <!--            Isi nickname-->
             <TextView
                 android:id="@+id/isi_nickname"
                 android:layout_width="350dp"
@@ -107,7 +98,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <!--            Label email-->
             <TextView
                 android:id="@+id/lbl_email"
                 android:layout_width="match_parent"
@@ -121,7 +111,6 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <!--            Isi email-->
             <TextView
                 android:id="@+id/isi_email"
                 android:layout_width="350dp"
@@ -133,7 +122,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <!--            Label domisili-->
             <TextView
                 android:id="@+id/lbl_domisili"
                 android:layout_width="match_parent"
@@ -147,7 +135,6 @@
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
-            <!--            Isi domisili-->
             <TextView
                 android:id="@+id/isi_domisili"
                 android:layout_width="350dp"
@@ -159,7 +146,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <!--            Label turnamen-->
             <TextView
                 android:id="@+id/lbl_turnamen"
                 android:layout_width="match_parent"
@@ -184,7 +170,6 @@
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <!--            Label Sumber-->
             <TextView
                 android:id="@+id/lbl_sumber"
                 android:layout_width="match_parent"
@@ -204,12 +189,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lbl_sumber"
                 android:layout_marginLeft="20dp"
-                android:layout_marginBottom="15dp"
                 android:backgroundTint="@color/light_blue"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
-            <!--            Label Rating-->
             <TextView
                 android:id="@+id/lbl_rating"
                 android:layout_width="match_parent"

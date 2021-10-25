@@ -124,4 +124,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Lalu list nya di return
         return users;
     }
+
+    public void update(User user) {
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(KEY_NAMALENGKAP, user.getNamaLengkap());
+        values.put(KEY_NICKNAME, user.getNickname());
+        values.put(KEY_EMAIL, user.getEmail());
+        values.put(KEY_DOMISILI, user.getDomisili());
+        values.put(KEY_TURNAMENT, user.getTurnament());
+        values.put(KEY_SUMBER, user.getSumber());
+        values.put(KEY_RATING, user.getRating());
+
+        String whereClause = KEY_ID + " = '" + user.getId() + "'";
+
+        db.update(TABLE_NAME, values, whereClause, null);
+    }
+
+    public void delete(int id) {
+        SQLiteDatabase db = getWritableDatabase();
+        String whereClause = KEY_ID + " = '" + id + "'";
+
+        db.delete(TABLE_NAME, whereClause, null);
+    }
 }
